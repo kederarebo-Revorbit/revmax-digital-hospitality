@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RevMax Digital Hospitality | Revenue. Digital. Growth.</title>
+    <meta name="description" content="RevMax Digital Hospitality helps hotels, resorts, restaurants, tour operators, and tourism businesses maximize revenue through revenue management, digital marketing, website development, and more.">
+    
+    <!-- Modern Tech Sans-Serif Typography: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-dark: #0B132B;
+            --primary-slate: #1C2541;
+            --accent-blue: #3A506B;
+            --gold: #D4AF37;
+            --gold-light: #E6C555;
+            --gold-dark: #AA8C2C;
+            --bg-light: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-glow: 0 0 35px rgba(212, 175, 55, 0.15);
+            --shadow-card: 0 10px 30px -5px rgba(11, 19, 43, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--primary-dark);
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--primary-dark);
+            padding: 0.9rem 2.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
+            transition: var(--transition-smooth);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gold::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-gold:hover::after {
+            left: 100%;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            padding: 0.9rem 2.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--primary-dark);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 4.5rem auto;
+        }
+
+        .section-tag {
+            color: var(--gold-dark);
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 0.4rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(11, 19, 43, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            transition: var(--transition-smooth);
+        }
+
+        header.scrolled {
+            padding: 0.4rem 0;
+            background: rgba(11, 19, 43, 0.95);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 85px;
+            transition: var(--transition-smooth);
+        }
+
+        header.scrolled .nav-container {
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--gold);
+        }
+
+        .logo-tagline {
+            font-size: 0.65rem;
+            color: var(--gold-light);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #CBD5E1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -6px;
+            left: 0;
+            background-color: var(--gold);
+            transition: var(--transition-smooth);
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.75rem;
+            transition: var(--transition-smooth);
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: radial-gradient(circle at 50% 30%, #1C2541 0%, #0B132B 70%);
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            color: var(--white);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-glow-mesh {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(58, 80, 107, 0.05) 50%, transparent 70%);
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 1;
+            animation: pulseGlow 8s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .hero-badge {
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--gold-light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 3.75rem;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #94A3B8;
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.25rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 850px;
+            margin: 0 auto;
+            background: rgba(28, 37, 65, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .stat-item h3 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .stat-item p {
+            color: #94A3B8;
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .about {
+            padding: 8rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .about-image-main {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(11, 19, 43, 0.15);
+        }
+
+        .about-image-badge {
+            position: absolute;
+            bottom: -35px;
+            right: -35px;
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 2.25rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            max-width: 280px;
+        }
+
+        .about-image-badge h4 {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-image-badge p {
+            font-size: 0.9rem;
+            color: #94A3B8;
+            margin-bottom: 0;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.25rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+        }
+
+        .about-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            background: var(--white);
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: var(--transition-smooth);
+        }
+
+        .about-feature-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
+        }
+
+        .about-feature-item i {
+            color: var(--gold);
+            font-size: 1.25rem;
+        }
+
+        .services {
+            padding: 8rem 0;
+            background-color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(11, 19, 43, 0.1);
+            border-color: var(--gold);
+            background: var(--white);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 1.75rem;
+            margin-bottom: 1.75rem;
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--gold);
+            color: var(--primary-dark);
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover .service-link {
+            color: var(--gold-dark);
+            gap: 0.75rem;
+        }
+
+        .why-us {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-slate) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-us .section-title {
+            color: var(--white);
+        }
+
+        .why-us .section-subtitle {
+            color: #94A3B8;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            transition: var(--transition-smooth);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .why-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+        }
+
+        .why-icon {
+            width: 75px;
+            height: 75px;
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 2rem;
+            margin: 0 auto 1.75rem auto;
+            transition: var(--transition-smooth);
+        }
+
+        .why-card:hover .why-icon {
+            background: var(--gold);
+            color: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .why-card h3 {
+            color: var(--white);
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .why-card p {
+            color: #94A3B8;
+            font-size: 0.95rem;
+        }
+
+        .contact {
+            padding: 8rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 4rem;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(11, 19, 43, 0.08);
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .contact-info-side {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .contact-info-side h2 {
+            color: var(--white);
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-side p {
+            color: #94A3B8;
+            margin-bottom: 3rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+        }
+
+        .contact-detail-item i {
+            color: var(--gold);
+            font-size: 1.35rem;
+            margin-top: 0.25rem;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .contact-detail-item h4 {
+            color: var(--white);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-detail-item p, .contact-detail-item a {
+            color: #CBD5E1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-detail-item a:hover {
+            color: var(--gold);
+        }
+
+        .contact-socials {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .contact-socials a {
+            width: 45px;
+            height: 45px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .contact-socials a:hover {
+            background: var(--gold);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .contact-form-side {
+            padding: 4rem 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.75rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: var(--bg-light);
+            border: 1px solid #CBD5E1;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 1.25rem 2.25rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            z-index: 3000;
+            transform: translateY(150%);
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-notification i {
+            color: var(--gold);
+            font-size: 1.75rem;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 19, 43, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 4000;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-container {
+            background: var(--white);
+            width: 100%;
+            max-width: 650px;
+            border-radius: 20px;
+            padding: 3.5rem;
+            position: relative;
+            transform: translateY(30px) scale(0.95);
+            transition: var(--transition-smooth);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            border-top: 5px solid var(--gold);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.75rem;
+            right: 1.75rem;
+            background: var(--bg-light);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.25rem;
+            color: var(--primary-dark);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--gold);
+            color: var(--primary-dark);
+            transform: rotate(90deg);
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        footer {
+            background: #050811;
+            color: #94A3B8;
+            padding: 6rem 0 2.5rem 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.75rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .footer-col p {
+            margin-bottom: 1.75rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .footer-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 6px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-bottom-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--gold);
+        }
+
+        @media (max-width: 992px) {
+            .about-grid, .contact-wrapper, .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .about-image-wrapper {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--primary-dark);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: var(--transition-smooth);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.35rem;
+            }
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .contact-form-side, .contact-info-side {
+                padding: 3rem 1.75rem;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.25rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-text">RevMax <span>Hospitality</span></span>
+                <span class="logo-tagline">Revenue. Digital. Growth.</span>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-us">Why RevMax</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="btn-gold" id="consultationBtnNav" style="padding: 0.65rem 1.5rem; font-size: 0.85rem;">Book Consultation</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-glow-mesh"></div>
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fa-solid fa-bolt"></i> Next-Gen Hospitality Technology & Revenue</span>
+            <h1>Helping Hospitality Businesses Grow <span>Revenue</span> & Strengthen Their <span>Digital Presence</span></h1>
+            <p>Maximizing profitability through advanced revenue management, precision digital marketing, OTA distribution mastery, and professional training.</p>
+            <div class="hero-buttons">
+                <button class="btn-gold" id="heroConsultationBtn">Book a Consultation <i class="fa-solid fa-arrow-right"></i></button>
+                <a href="#contact" class="btn-outline">Contact Us</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3 class="counter" data-target="35">0</h3><span style="font-size:2.25rem; font-weight:800; color:var(--gold);">%+</span>
+                    <p>Average Revenue Lift</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="100">0</h3><span style="font-size:2.25rem; font-weight:800; color:var(--gold);">+</span>
+                    <p>Hotels & Resorts Optimized</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="15">0</h3><span style="font-size:2.25rem; font-weight:800; color:var(--gold);">+</span>
+                    <p>Years Industry Expertise</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80" alt="Luxury Hotel Interior" class="about-image-main">
+                    <div class="about-image-badge">
+                        <h4>Tech-Driven Boutique</h4>
+                        <p>Combining world-class hospitality experience with cutting-edge digital analytics.</p>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-tag">About RevMax Digital Hospitality</span>
+                    <h2>Elevating Hospitality Standards Through Data & Digital Innovation</h2>
+                    <p>RevMax Digital Hospitality is a premier consultancy dedicated to empowering hotels, resorts, restaurants, tour operators, and tourism businesses. We bridge the gap between traditional hospitality service excellence and automated, high-yielding digital growth.</p>
+                    <p>Our mission is to maximize your property's bottom-line profitability, optimize digital distribution channels, and craft seamless guest journeys from digital discovery to checkout.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Revenue Optimization</span>
+                        </div>
+                        <div class="about-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>OTA Distribution Mastery</span>
+                        </div>
+                        <div class="about-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Digital Transformation</span>
+                        </div>
+                        <div class="about-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Customized Training</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Comprehensive Solutions</span>
+                <h2 class="section-title">Services Tailored for Hospitality Growth</h2>
+                <p class="section-subtitle">Discover our full suite of specialized revenue, digital, and operational solutions designed to give your hospitality business a decisive competitive edge.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card" onclick="openServiceModal('Revenue Management', 'Dynamic pricing models, real-time demand forecasting, occupancy maximization, and yield strategy to ensure optimal RevPAR and ADR growth across all seasons.')">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                        <h3>Revenue Management</h3>
+                        <p>Dynamic pricing, demand forecasting, occupancy maximization, and yield strategy to ensure optimal RevPAR and ADR growth.</p>
+                    </div>
+                    <span class="service-link">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card" onclick="openServiceModal('OTA & Distribution Management', 'Channel manager optimization, OTA content parity, commission control, and direct booking channel shift strategies to reduce acquisition costs.')">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+                        <h3>OTA & Distribution Management</h3>
+                        <p>Channel manager optimization, OTA content parity, commission control, and direct booking channel shift strategies.</p>
+                    </div>
+                    <span class="service-link">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card" onclick="openServiceModal('Website Development', 'High-converting, mobile-responsive hospitality websites integrated with seamless, commission-free booking engines and lightning-fast loading speeds.')">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h3>Website Development</h3>
+                        <p>High-converting, mobile-responsive hospitality websites integrated with seamless, commission-free booking engines.</p>
+                    </div>
+                    <span class="service-link">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card" onclick="openServiceModal('Digital Marketing', 'Targeted PPC advertising, social media campaigns, SEO excellence, and email marketing designed to capture direct leisure and corporate travelers.')">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                        <h3>Digital Marketing</h3>
+                        <p>Targeted PPC advertising, social media campaigns, SEO excellence, and email marketing designed to capture direct leisure and corporate travelers.</p>
+                    </div>
+                    <span class="service-link">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+                <!-- Service 5 -->
+                <div class="service-card" onclick="openServiceModal('Review & Reputation Management', 'Proactive online review monitoring, guest feedback analysis, and strategic response management to elevate your TripAdvisor and Google ratings.')">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-star"></i></div>
+                        <h3>Review & Reputation Management</h3>
+                        <p>Proactive online review monitoring, guest feedback analysis, and strategic response management to elevate your TripAdvisor and Google ratings.</p>
+                    </div>
+                    <span class="service-link">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+                <!-- Service 6 -->
+                <div class="service-card" onclick="openServiceModal('Digital Menu Solutions', 'Interactive QR code menus, multi-lingual digital dining experiences, and automated upselling prompts for restaurants and resort dining outlets.')">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-utensils"></i></div>
+                        <h3>Digital Menu Solutions</h3>
+                        <p>Interactive QR code menus, multi-lingual digital dining experiences, and upselling prompts for restaurants and resort dining outlets.</p>
+                    </div>
+                    <span class="service-link">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+                <!-- Service 7 -->
+                <div class="service-card" onclick="openServiceModal('Hospitality Training', 'Professional staff training programs covering front office upselling, revenue awareness, digital guest service, and operational standards.')">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3>Hospitality Training</h3>
+                        <p>Professional staff training programs covering front office upselling, revenue awareness, digital guest service, and operational standards.</p>
+                    </div>
+                    <span class="service-link">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+                <!-- Service 8 -->
+                <div class="service-card" onclick="openServiceModal('New Hotel Project Setup', 'Turnkey pre-opening advisory, PMS/POS software selection, technology stack integration, and brand positioning from the ground up.')">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-hotel"></i></div>
+                        <h3>New Hotel Project Setup</h3>
+                        <p>Turnkey pre-opening advisory, PMS/POS software selection, technology stack integration, and brand positioning from the ground up.</p>
+                    </div>
+                    <span class="service-link">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" style="background: rgba(212, 175, 55, 0.15); color: var(--gold-light);">The RevMax Advantage</span>
+                <h2 class="section-title">Why Hospitality Leaders Choose Us</h2>
+                <p class="section-subtitle">We combine deep hospitality industry experience with advanced digital analytics to deliver measurable, sustainable financial growth.</p>
+            </div>
+
+            <div class="why-grid">
+                <!-- Feature 1 -->
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-award"></i></div>
+                    <h3>Hospitality Expertise</h3>
+                    <p>Decades of specialized hands-on management experience across hotels, luxury resorts, and high-end restaurants.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-database"></i></div>
+                    <h3>Data-Driven Decisions</h3>
+                    <p>Every pricing adjustment, marketing campaign, and operational strategy is backed by deep market intelligence and analytics.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <h3>Customized Solutions</h3>
+                    <p>No cookie-cutter templates. Every strategy is tailor-made to match your property's unique market position and goals.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h3>Sustainable Growth</h3>
+                    <p>We build long-term profitability, strong direct booking channels, and enduring brand loyalty for your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Start Maximizing Your Revenue Today</h2>
+                <p class="section-subtitle">Reach out to our hospitality experts to schedule an initial consultation or request a customized revenue audit for your property.</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-info-side">
+                    <div>
+                        <h2>Contact Information</h2>
+                        <p>Let's discuss how we can elevate your hotel, resort, or restaurant's digital presence and revenue potential.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <div>
+                                    <h4>Location</h4>
+                                    <p>Addis Ababa, Ethiopia</p>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <div>
+                                    <h4>Email Us</h4>
+                                    <a href="mailto:info@revmaxhospitality.com">info@revmaxhospitality.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <i class="fa-solid fa-clock"></i>
+                                <div>
+                                    <h4>Business Hours</h4>
+                                    <p>Mon - Fri: 8:00 AM - 6:00 PM (EAT)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-socials">
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form-side">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="john@hotel.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company / Property Name *</label>
+                            <input type="text" id="company" name="company" class="form-control" placeholder="Grand Resort & Spa" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Tell us about your property and goals..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 1rem;">
+                        <span class="logo-text">RevMax <span>Hospitality</span></span>
+                        <span class="logo-tagline">Revenue. Digital. Growth.</span>
+                    </a>
+                    <p>Empowering hotels, resorts, restaurants, and tourism enterprises with elite revenue management, digital marketing, and advisory solutions.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#why-us">Why RevMax</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Core Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Revenue Management</a></li>
+                        <li><a href="#services">OTA Distribution</a></li>
+                        <li><a href="#services">Website Development</a></li>
+                        <li><a href="#services">Digital Marketing</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 RevMax Digital Hospitality. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="consultationModal">
+        <div class="modal-container">
+            <button class="modal-close" id="modalClose" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="modal-title">Book a Consultation</h3>
+            <p class="modal-subtitle">Schedule a strategy session with our hospitality revenue experts.</p>
+            <form id="consultationForm">
+                <div class="form-group">
+                    <label for="modalName">Full Name *</label>
+                    <input type="text" id="modalName" name="modalName" class="form-control" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalEmail">Email Address *</label>
+                    <input type="email" id="modalEmail" name="modalEmail" class="form-control" placeholder="john@hotel.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalProperty">Property / Business Name *</label>
+                    <input type="text" id="modalProperty" name="modalProperty" class="form-control" placeholder="Grand Resort & Spa" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalDate">Preferred Consultation Date *</label>
+                    <input type="date" id="modalDate" name="modalDate" class="form-control" required>
+                </div>
+                <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;">Confirm Booking <i class="fa-solid fa-calendar-check"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="serviceModal">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeServiceModal()" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="modal-title" id="serviceModalTitle">Service Details</h3>
+            <p class="modal-subtitle" id="serviceModalDesc" style="margin-bottom: 2rem; line-height: 1.8;"></p>
+            <button class="btn-gold" onclick="closeServiceModal(); document.getElementById('consultationModal').classList.add('active'); document.body.style.overflow='hidden';" style="width: 100%; justify-content: center;">Book Consultation for this Service <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <div class="toast-notification" id="toastNotification">
+        <i class="fa-solid fa-circle-check"></i>
+        <div>
+            <h4 style="color: var(--white); font-size: 1rem; margin-bottom: 0.1rem;" id="toastTitle">Success!</h4>
+            <p style="color: #94A3B8; font-size: 0.85rem; margin-bottom: 0;" id="toastMessage">Your request has been sent successfully.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sticky Header on Scroll
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 40) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile Hamburger Menu Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            const navItems = navLinks.querySelectorAll('a');
+
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = hamburger.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu on link click
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.querySelector('i').classList.remove('fa-xmark');
+                    hamburger.querySelector('i').classList.add('fa-bars');
+                });
+            });
+
+            // Consultation Modal Logic
+            const modalOverlay = document.getElementById('consultationModal');
+            const modalClose = document.getElementById('modalClose');
+            const consultationBtnNav = document.getElementById('consultationBtnNav');
+            const heroConsultationBtn = document.getElementById('heroConsultationBtn');
+
+            function openModal(e) {
+                e.preventDefault();
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            consultationBtnNav.addEventListener('click', openModal);
+            heroConsultationBtn.addEventListener('click', openModal);
+            modalClose.addEventListener('click', closeModal);
+
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    closeModal();
+                }
+            });
+
+            // Dynamic Number Counters
+            const counters = document.querySelectorAll('.counter');
+            let animated = false;
+
+            function runCounters() {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    let count = 0;
+                    const speed = target / 40;
+                    const updateCount = () => {
+                        count += speed;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count);
+                            setTimeout(updateCount, 40);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            }
+
+            window.addEventListener('scroll', () => {
+                const statsSection = document.querySelector('.hero-stats');
+                const position = statsSection.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                if (position < screenPosition && !animated) {
+                    runCounters();
+                    animated = true;
+                }
+            });
+
+            // Toast Notification Handler
+            const toast = document.getElementById('toastNotification');
+            const toastTitle = document.getElementById('toastTitle');
+            const toastMessage = document.getElementById('toastMessage');
+
+            function showToast(title, message) {
+                toastTitle.textContent = title;
+                toastMessage.textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 4500);
+            }
+
+            // Contact Form Submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                showToast('Message Received!', `Thank you ${name}. Our hospitality team will contact you shortly.`);
+                contactForm.reset();
+            });
+
+            // Consultation Form Submission
+            const consultationForm = document.getElementById('consultationForm');
+            consultationForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('modalName').value;
+                closeModal();
+                showToast('Consultation Booked!', `Thank you ${name}. We have received your booking request.`);
+                consultationForm.reset();
+            });
+
+            // Active Navigation Highlighting on Scroll
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navItems.forEach(a => {
+                    a.classList.remove('active');
+                    if (a.getAttribute('href') === `#${current}`) {
+                        a.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Service Modal Functions
+        function openServiceModal(title, desc) {
+            document.getElementById('serviceModalTitle').innerText = title;
+            document.getElementById('serviceModalDesc').innerText = desc;
+            document.getElementById('serviceModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeServiceModal() {
+            document.getElementById('serviceModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('serviceModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('serviceModal')) {
+                closeServiceModal();
+            }
+        });
+    </script>
+</body>
+</html>
